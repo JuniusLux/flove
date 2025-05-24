@@ -258,6 +258,11 @@ document.addEventListener("click", (event) => {
 document.addEventListener("click", (event) => {
   const button = event.target.closest(".plus, .minus");
   if (button) {
+    const user = document.getElementById("quit");
+     if (!user) {
+      alert("Добавить в корзину товары можно после авторизации");
+      return;
+    }
     const counter = button.closest(".counter");
     const item = counter.closest(".item");
     if (item) {
