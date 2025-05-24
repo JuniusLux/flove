@@ -126,8 +126,8 @@ main {
     backdrop-filter: blur(5.5px);
 } */
 
-.message{
-        font-family: "Inter";
+.message {
+    font-family: "Inter";
     padding: 5px 20px;
     height: 30px;
     border-radius: 10px;
@@ -146,14 +146,14 @@ main {
 
 }
 
-.home__banner h1{
+.home__banner h1 {
     text-align: center;
     font-size: 50px;
     text-shadow: 4px 4px 4px #00000050;
     margin-top: 30px;
 }
 
-.home__banner__links{
+.home__banner__links {
     display: flex;
     justify-content: space-between;
     margin: 0px 60px;
@@ -165,7 +165,7 @@ main {
     line-height: 30px;
 }
 
-.home__banner__links a{
+.home__banner__links a {
     background: #D16E8266;
     border: 2px solid #FFFFFF;
     text-shadow: none;
@@ -178,7 +178,7 @@ main {
     justify-content: center;
 }
 
-.home__banner__link{
+.home__banner__link {
     width: 375px;
     display: flex;
     flex-direction: column;
@@ -216,10 +216,10 @@ main {
     margin-left: 20%;
 }
 
-body > h1,
-.packaging__price__container > h1,
-.admin > h1,
-.cart__header__container > h1,
+body>h1,
+.packaging__price__container>h1,
+.admin>h1,
+.cart__header__container>h1,
 .about__location h1 {
     font-size: 41px;
     position: relative;
@@ -229,10 +229,10 @@ body > h1,
     margin: 30px 70px;
 }
 
-body > h1::before,
-.packaging__price__container > h1::before,
-.admin > h1::before,
-.cart__header__container > h1::before,
+body>h1::before,
+.packaging__price__container>h1::before,
+.admin>h1::before,
+.cart__header__container>h1::before,
 .about__location h1::before {
     content: "";
     position: absolute;
@@ -1114,21 +1114,21 @@ input::placeholder {
     width: 90vw;
 }
 
-.about__header{
+.about__header {
     display: flex;
     justify-content: space-between;
-    padding:  40px 70px;
+    padding: 40px 70px;
     box-sizing: border-box;
     align-items: center;
 }
 
-.about__header .img-container{
+.about__header .img-container {
     width: 635px;
     height: 450px;
     border-radius: 50px;
 }
 
-.about__header__text{
+.about__header__text {
     width: 665px;
     font-size: 28px;
     line-height: 34px;
@@ -1137,17 +1137,17 @@ input::placeholder {
     font-weight: 200;
 }
 
-.about__header__text img{
+.about__header__text img {
     margin-bottom: 22px;
 }
 
-.about__why{
+.about__why {
     display: flex;
     justify-content: space-between;
-        padding: 0px 110px;
+    padding: 0px 110px;
 }
 
-.why{
+.why {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1155,20 +1155,20 @@ input::placeholder {
     gap: 20px;
 }
 
-.why p{
+.why p {
     width: 200px;
     text-align: center;
     font-size: 24px;
 }
 
-.about__employees{
+.about__employees {
     display: flex;
     justify-content: space-between;
     padding: 0px 70px;
     box-sizing: border-box;
 }
 
-.employee{
+.employee {
     width: 300px;
     height: 430px;
     display: flex;
@@ -1178,11 +1178,11 @@ input::placeholder {
     gap: 15px;
 }
 
-.employee .img-container{
+.employee .img-container {
     border-radius: 35px;
 }
 
-.about__location{
+.about__location {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
@@ -1190,19 +1190,19 @@ input::placeholder {
     margin-top: 50px;
 }
 
-.about__location .img-container{
+.about__location .img-container {
     width: 666px;
     height: 345px;
 }
 
-.about__location__where{
+.about__location__where {
     width: 550px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.about__locations{
+.about__locations {
     font-size: 24px;
     color: #000000;
     display: flex;
@@ -1211,17 +1211,17 @@ input::placeholder {
     margin-left: 30px;
 }
 
-.maps{
+.maps {
     display: flex;
     justify-content: space-between;
 }
 
-.about__map{
+.about__map {
     padding: 0px 70px;
     margin: 50px 0px;
 }
 
-.articles__list{
+.articles__list {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1238,7 +1238,7 @@ input::placeholder {
     margin-left: 70px;
 }
 
-.article{
+.article {
     background: linear-gradient(0deg, #4E6060 0%, rgba(78, 96, 96, 0.1) 100%);
     margin: 0px 70px;
     border-radius: 35px;
@@ -1249,203 +1249,227 @@ input::placeholder {
     margin-bottom: 50px;
 }
 
-.article__block{
+.article__block {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.article__text{
+.article__text {
     align-self: flex-start;
     width: 60%;
 }
 
-.article__text p{
+.article__text p {
     margin-bottom: 30px;
 }
 
-.article__image-1{
+.article__image-1 {
     width: 490px;
     height: 580px;
 }
-.article__image-2{
+
+.article__image-2 {
     width: 490px;
     height: 456px;
     margin-left: 70px;
 }
 
-.article a{
+.article a {
     text-decoration: underline;
 }
 
-.red{
+.red {
     background: #f5353525;
 }
 
-.green{
+.green {
     background-color: #55f74325;
 }
 
 .order-table {
-  width: 90%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  background-color: #000000;
-  color: #000000;
-  margin: 0 100px;
-  
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    background-color: #000000;
+    color: #000000;
+    margin: 0 100px;
 }
 
 .order-table thead {
-  background-color: #ffb2b2;
-  color: #ffffff;
+    background-color: #ffb2b2;
+    color: #ffffff;
+
 }
+
+tbody tr {
+    border-radius: 30px;
+}
+
+
 
 .order-table th,
 .order-table td {
-  padding: 12px 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
 }
 
 .order-table tr.green {
-  background-color: #e6ffe6;
+    background-color: #e6ffe6;
 }
 
 .order-table tr.basic {
-  background-color: #f3f9ff;
+    background-color: #f3f9ff;
 }
 
 .order-table tr.red {
-  background-color: #fff2e6;
+    background-color: #fff2e6;
 }
 
 .order-table h3 {
-  margin: 10px 0 5px;
-  font-size: 24px;
-  color: #555;
+    margin: 10px 0 5px;
+    font-size: 24px;
+    color: #555;
 }
 
 .order-table p {
-  margin: 5px 0;
-  font-size: 14px;
+    margin: 5px 0;
+    font-size: 14px;
 }
 
 /* Кнопки */
 .btn {
-  padding: 6px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s ease;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
 }
 
 .btn-approve {
-  background-color: #28a745;
-  color: white;
+    background-color: #28a745;
+    color: white;
 }
 
 .btn-complete {
-  background-color: #717171;
-  color: white;
+    background-color: #717171;
+    color: white;
 }
 
 .btn-delete {
-  background-color: #f57884;
-  color: white;
+    background-color: #f57884;
+    color: white;
 }
 
 .btn:hover {
-  opacity: 0.9;
+    opacity: 0.9;
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
-  .order-table, .order-table thead, .order-table tbody, .order-table th, .order-table td, .order-table tr {
-    display: block;
-  }
 
-  .order-table tr {
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-  }
+    .order-table,
+    .order-table thead,
+    .order-table tbody,
+    .order-table th,
+    .order-table td,
+    .order-table tr {
+        display: block;
+    }
 
-  .order-table th, .order-table td {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 12px;
-    font-size: 14px;
-  }
+    .order-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+    }
 
-  .order-table th {
-    background-color: #f0f0f0;
-  }
+    .order-table th,
+    .order-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .order-table th {
+        background-color: #f0f0f0;
+    }
 }
 
 .popup {
-  display: none; /* скрыто по умолчанию */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5); /* затемнение фона */
-  z-index: 999;
+    display: none;
+    /* скрыто по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* затемнение фона */
+    z-index: 999;
 }
 
 /* Белое окно popup */
 .popup-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
-  position: relative;
-  animation: fadeIn 0.3s ease;
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    position: relative;
+    animation: fadeIn 0.3s ease;
 }
 
 /* Крестик закрытия */
 .close-btn {
-  color: #aaa;
-  float: right;
-  font-size: 24px;
-  font-weight: bold;
-  cursor: pointer;
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .close-btn:hover,
 .close-btn:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Анимация появления */
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .password-container input {
-      width: 100%;
-      padding-right: 40px;
-      padding-left: 10px;
-      height: 40px;
-      font-size: 16px;
-    }
+    width: 100%;
+    padding-right: 40px;
+    padding-left: 10px;
+    height: 40px;
+    font-size: 16px;
+}
 
-    .toggle-password {
-      position: absolute;
-      right: 10px;
-      top: 8px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 18px;
-    }
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
 
-    textarea{
-        resize: none;
-    }
+textarea {
+    resize: none;
+}

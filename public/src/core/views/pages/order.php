@@ -38,7 +38,7 @@ $orders = Orders::getOrders();
         <?php endif; ?>
     </h1>
 
-    <table class="order-table">
+    <table class="order-table">  
         <thead>
             <tr>
                 <th>ID</th>
