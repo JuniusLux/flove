@@ -1031,6 +1031,14 @@ input::placeholder {
     gap: 15px;
 }
 
+.cart__checkout__group select {
+    color: #000;
+}
+
+.cart__checkout__group select option {
+    color: #000;
+}
+
 .cart__checkout__group label {
     margin-left: 5px;
 }
