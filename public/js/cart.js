@@ -72,6 +72,15 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("orderForm").addEventListener("submit", function (event) {
     // Получаем данные из localStorage
     const cartData = localStorage.getItem("cart");
+    const daySelect = document.getElementById('day');
+    const timeSelect = document.getElementById('time');
+    
+    if (daySelect && timeSelect) {
+        daySelect.addEventListener('change', function() {
+            // Отправляем форму для обновления времени (можно сделать через AJAX)
+            this.form.submit();
+        });
+    }
 
     let cart = {};
     if (cartData) {
@@ -82,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cart = {};
       }
     }
-
+    
     const form = document.getElementById("orderForm");
 
 form.addEventListener("submit", function (event) {
