@@ -1,4 +1,4 @@
-  document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
 });
 
@@ -33,7 +33,7 @@ function updateCartCount() {
         }
       }
 
-      countText.textContent = totalCount > 0 ? `${totalCount}` : '(0)';
+      countText.textContent = totalCount > 0 ? `${totalCount}` : "(0)";
     } else {
       console.warn("Элемент .cart-count не найден");
     }
@@ -51,7 +51,6 @@ function closePopup() {
   document.getElementById("overlay").classList.add("hidden");
 }
 
-
 // Закрытие попапа при клике на overlay
 document.getElementById("overlay").addEventListener("click", function (event) {
   if (event.target === this) {
@@ -66,38 +65,38 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
   // Обработчик отправки формы
-  document.getElementById("orderForm").addEventListener("submit", function (event) {
-    // Получаем данные из localStorage
-    const cartData = localStorage.getItem("cart");
-    const daySelect = document.getElementById('day');
-    const timeSelect = document.getElementById('time');
-    
-    if (daySelect && timeSelect) {
-        daySelect.addEventListener('change', function() {
-            // Отправляем форму для обновления времени (можно сделать через AJAX)
-            this.form.submit();
+  document
+    .getElementById("orderForm")
+    .addEventListener("submit", function (event) {
+      // Получаем данные из localStorage
+      const cartData = localStorage.getItem("cart");
+      const daySelect = document.getElementById("day");
+      const timeSelect = document.getElementById("time");
+
+      if (daySelect && timeSelect) {
+        daySelect.addEventListener("change", function () {
+          // Отправляем форму для обновления времени (можно сделать через AJAX)
+          this.form.submit();
         });
-    }
-
-    let cart = {};
-    if (cartData) {
-      try {
-        cart = JSON.parse(cartData);
-      } catch (e) {
-        console.error("Ошибка парсинга корзины:", e);
-        cart = {};
       }
-    }
-    
-    const form = document.getElementById("orderForm");
 
-form.addEventListener("submit", function (event) {
+      let cart = {};
+      if (cartData) {
+        try {
+          cart = JSON.parse(cartData);
+        } catch (e) {
+          console.error("Ошибка парсинга корзины:", e);
+          cart = {};
+        }
+      }
 
-  if (localStorage.length !== 0) {
-    popupHTML = ` <div class="item" data-type="bouquet">
+      const form = document.getElementById("orderForm");
+
+      form.addEventListener("submit", function (event) {
+        if (localStorage.length !== 0) {
+          popupHTML = ` <div class="item" data-type="bouquet">
                         <div class="item__info">
                             <div class="item__info__buy">
                                 <div class="horizontal">
@@ -109,24 +108,23 @@ form.addEventListener("submit", function (event) {
                         </div>
                     </div>`;
 
-    document.getElementById("popup-content").innerHTML = popupHTML;
-    openPopup();
-      setTimeout(() => {
-    }, 5000);
-  }
-});
+          document.getElementById("popup-content").innerHTML = popupHTML;
+          openPopup();
+          setTimeout(() => {}, 5000);
+        }
+      });
 
-    // Преобразуем в JSON строку и устанавливаем в hidden input
-    const cartInput = document.getElementById("cartDataInput");
-    if (cartInput) {
-      cartInput.value = JSON.stringify(cart);
-    } else {
-      console.warn("Поле cartDataInput не найдено");
-    }
+      // Преобразуем в JSON строку и устанавливаем в hidden input
+      const cartInput = document.getElementById("cartDataInput");
+      if (cartInput) {
+        cartInput.value = JSON.stringify(cart);
+      } else {
+        console.warn("Поле cartDataInput не найдено");
+      }
 
-    // Лог для отладки
-    console.log("Корзина перед отправкой:", cart);
-  });
+      // Лог для отладки
+      console.log("Корзина перед отправкой:", cart);
+    });
 });
 
 function updateCartStorage() {
@@ -139,7 +137,6 @@ function updateCartStorage() {
 function displayCartState() {
   console.log("Текущее состояние корзины:", cart);
 }
-
 
 // Обновление интерфейса
 function updateUI() {
@@ -187,7 +184,16 @@ function updateUI() {
 // Добавление товара в корзину
 document.addEventListener("click", (event) => {
   const addButton = event.target.closest(".add-to-cart");
-  if (!addButton) return;
+
+  if (!addButton) {
+    return;
+  } else {
+    const user = document.getElementById("quit");
+    if (!user) {
+      alert("Добавить в корзину товары можно после авторизации");
+      return;
+    }
+  }
 
   const card = addButton.closest(".item-card");
   if (!card) return; // Проверка на наличие карточки товара
@@ -222,8 +228,17 @@ document.addEventListener("click", (event) => {
 
 // Изменение количества товара
 document.addEventListener("click", (event) => {
+  // Здесь надо будет !!!!!!!!!!!!!!!!
   const button = event.target.closest(".plus, .minus");
-  if (!button) return;
+  if (!button) {
+    return;
+  } else {
+    const user = document.getElementById("quit");
+    if (!user) {
+      alert("Добавить в корзину товары можно после авторизации");
+      return;
+    }
+  }
 
   const counter = button.closest(".counterContainer");
   if (!counter) return; // Проверка на наличие счетчика
@@ -254,13 +269,9 @@ document.addEventListener("click", (event) => {
   updateCartCount();
 });
 
-
-
 // Синхронизация интерфейса при загрузке страницы
 document.addEventListener("DOMContentLoaded", () => {
   updateUI();
   displayCartState();
-  updateCartCount(); 
-
+  updateCartCount();
 });
-

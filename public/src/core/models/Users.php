@@ -26,6 +26,12 @@ class Users
                         die();
                     } else {
                         $message = 'Вы успешно зарегестрировались';
+                        $isAuthorized = isset($_SESSION['user']) ? 'true' : 'false';
+                        ?>
+                        <script>
+                            const isAuthorized = <?= $isAuthorized ?>;
+                        </script>
+                        <?php
                         header("Location: /login?message=$message");
                         die();
                     }
@@ -60,15 +66,15 @@ class Users
                 ];
                 $message = 'Дарова, ' . $user['phone'];
                 header("Location: /?message=$message");
-            }
-            else{
+            } else {
                 $message = 'Неправильный логин или пароль';
                 header("Location: /login?message=$message");
             }
         }
     }
 
-    public static function quit(){
+    public static function quit()
+    {
         unset($_SESSION['user']);
         $message = 'Вышел из аккаунта';
         header("Location: /?message=$message");

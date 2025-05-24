@@ -1,4 +1,6 @@
 // Менеджер корзины
+
+
 const CartManager = {
   cart: JSON.parse(localStorage.getItem("cart")) || {
     bouquet: {},
@@ -46,6 +48,8 @@ const CartManager = {
 
   // Добавление товара в корзину
   addToCart(item) {
+    console.log( 'mfcgfnb' + isAuthorized)
+
     const productId = item.dataset.id;
     const productType = item.dataset.type;
 
@@ -254,6 +258,11 @@ document.addEventListener("click", (event) => {
 document.addEventListener("click", (event) => {
   const button = event.target.closest(".plus, .minus");
   if (button) {
+    const user = document.getElementById("quit");
+     if (!user) {
+      alert("Добавить в корзину товары можно после авторизации");
+      return;
+    }
     const counter = button.closest(".counter");
     const item = counter.closest(".item");
     if (item) {

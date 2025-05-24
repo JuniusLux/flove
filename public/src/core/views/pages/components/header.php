@@ -2,7 +2,11 @@
     <h1 class="header__logo">FLOVE</h1>
     <div class="header__buttons">
         <?php if (isset($_SESSION['user'])): ?>
-            <form action="/quit" method="post"><button type="submit" style="background: none; border: none;"><img src="/svg/quit.svg" alt=""></button></form>
+            <form action="/quit" method="post">
+                <button type="submit" id="quit" style="background: none; border: none;">
+                    <img src="/svg/quit.svg" alt="">
+                </button>
+            </form>
         <?php else: ?>
             <a href="/login">
                 <img src="/svg/профиль11.svg" alt="">

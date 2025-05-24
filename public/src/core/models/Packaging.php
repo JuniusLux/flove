@@ -10,7 +10,7 @@ class Packaging
     {
         $searchWord = $_GET['search'] ?? '';
         $db = Connect::getConnect();
-         if (empty($searchWord)) {
+         if (empty($searchWord) or strpos(strtolower($searchWord), 'упак') !== false)  {
         $packagings = $db->query('SELECT `packaging`.* FROM `packaging`');
          }else{
             $packagings = $db->query("SELECT `packaging`.* FROM `packaging` where `name` LIKE '%$searchWord%'");
