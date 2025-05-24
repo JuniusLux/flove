@@ -20,6 +20,9 @@
 
 <?
 
+if (empty($_SESSION['user'])){
+    header('Location: /login?message=Для добавления товаров в корзину, нужно авторизоваться');
+}
 use src\core\models\Bouquets;
 use src\core\models\Flowers;
 use src\core\models\Packaging;

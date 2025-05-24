@@ -178,6 +178,12 @@ function updateUI() {
 // Добавление товара в корзину
 document.addEventListener("click", (event) => {
   const addButton = event.target.closest(".add-to-cart");
+
+  const user = document.getElementById('quit')
+  if(!user){
+    alert('Добавить в корзину товары можно после авторизации')
+    return
+  } 
   if (!addButton) return;
 
   const card = addButton.closest(".item-card");
@@ -213,6 +219,7 @@ document.addEventListener("click", (event) => {
 
 // Изменение количества товара
 document.addEventListener("click", (event) => {
+  // Здесь надо будет !!!!!!!!!!!!!!!!
   const button = event.target.closest(".plus, .minus");
   if (!button) return;
 

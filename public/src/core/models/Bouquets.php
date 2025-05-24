@@ -9,14 +9,17 @@ class Bouquets
     public static function getBouquets()
     {
         $searchWord = $_GET['search'] ?? '';
-
-
-        if(strtolower($searchWord) == 'букет' or strtolower($searchWord) == 'букеты'){
-            
-        }
         $db = Connect::getConnect();
-        $bouquets = $db->query("SELECT `bouquets`.* FROM `bouquets`  LEFT JOIN   `bouquets_categories` ON `bouquets`.`category` = `bouquets_categories`.`id`
-        WHERE name LIKE '%$searchWord%'");
+
+        if (strpos(strtolower($searchWord), 'буке') !== false) {
+         $bouquets = $db->query("SELECT `bouquets`.* FROM `bouquets`  LEFT JOIN   `bouquets_categories` ON `bouquets`.`category` = `bouquets_categories`.`id`");
+        } else {
+               $bouquets = $db->query("SELECT `bouquets`.* FROM `bouquets`  
+               LEFT JOIN   `bouquets_categories` ON `bouquets`.`category` = `bouquets_categories`.`id`
+            WHERE name LIKE '%$searchWord%'
+            OR `bouquets_categories`.`category_name` LIKE '%$searchWord%'");
+        }
+
         $flowers = $db->query('SELECT `bouquets_flowers`.`bouquet_id`, `bouquets_flowers`.`flower_id`, `flowers`.`name` AS `flower_name` FROM `bouquets` LEFT JOIN `bouquets_flowers` ON `bouquets`.`id` = `bouquets_flowers`.`bouquet_id` LEFT JOIN `flowers` ON `bouquets_flowers`.`flower_id` = `flowers`.`id` ');
 
 

@@ -1,4 +1,6 @@
 // Менеджер корзины
+
+
 const CartManager = {
   cart: JSON.parse(localStorage.getItem("cart")) || {
     bouquet: {},
@@ -46,6 +48,8 @@ const CartManager = {
 
   // Добавление товара в корзину
   addToCart(item) {
+    console.log( 'mfcgfnb' + isAuthorized)
+
     const productId = item.dataset.id;
     const productType = item.dataset.type;
 
