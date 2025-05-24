@@ -28,22 +28,53 @@ $bouquets = Bouquets::getBouquets();
 $flowers = Flowers::getFlowers();
 $packagings = Packaging::getPackaging();
 $popularPackagings = Packaging::getPopularPackaging();
-function generateDeliveryTimeOptions($start = '08:00', $end = '20:00', $stepMinutes = 30)
+function generateDeliveryTimeOptions($start = '09:00', $end = '23:00', $stepMinutes = 30)
 {
     $options = [];
+    $currentTime = date('H:i');
+    $selectedDate = $_POST['day'] ?? date('Y-m-d'); // предполагаем, что дата передается через POST
 
-    // Преобразуем время в timestamp
+    // Если выбран сегодняшний день, скрываем прошедшее время
+    $isToday = ($selectedDate == date('Y-m-d'));
+
     $startTime = strtotime($start);
     $endTime = strtotime($end);
 
-    // Генерируем варианты
     for ($time = $startTime; $time <= $endTime; $time += $stepMinutes * 60) {
         $formattedTime = date('H:i', $time);
+
+        // Пропускаем прошедшее время для сегодняшнего дня
+        if ($isToday && $formattedTime < $currentTime) {
+            continue;
+        }
+
         $options[] = "<option value=\"$formattedTime\">$formattedTime</option>";
     }
 
     return implode("\n", $options);
 }
+
+function generateDeliveryDateOptions($daysAhead = 30)
+{
+    $options = [];
+    $currentDate = new DateTime();
+    $currentTime = $currentDate->format('H:i');
+
+    // Сегодняшняя дата
+    $today = $currentDate->format('Y-m-d');
+    $options[] = "<option value=\"$today\">Сегодня ($today)</option>";
+
+    // Следующие 30 дней
+    for ($i = 1; $i <= $daysAhead; $i++) {
+        $currentDate->modify('+1 day');
+        $date = $currentDate->format('Y-m-d');
+        $formattedDate = $currentDate->format('d.m.Y');
+        $options[] = "<option value=\"$date\">$formattedDate</option>";
+    }
+
+    return implode("\n", $options);
+}
+
 ?>
 
 <body>
@@ -95,6 +126,10 @@ function generateDeliveryTimeOptions($start = '08:00', $end = '20:00', $stepMinu
                         <option value="" class="cart__checkout__input">-- Выберите время --</option>
                         <?= generateDeliveryTimeOptions() ?>
                     </select>
+                    <select name="day" id="day" required>
+                        <option value="" class="cart__checkout__input">-- Выберите дату --</option>
+                        <?= generateDeliveryDateOptions() ?>
+                    </select>
                 </div>
                 <textarea name="comment" id="comment" placeholder="Оставьте комментарий к заказу"></textarea>
                 <input type="hidden" name="order" id="order">
@@ -104,8 +139,8 @@ function generateDeliveryTimeOptions($start = '08:00', $end = '20:00', $stepMinu
                         <?= $_GET['message'] ?>
                     <?php endif; ?>
                 </h1>
-                <button type="submit" class="item-card__name"
-                    data-type="message" id="cartButton">Оформить заказ</button>
+                <button type="submit" class="item-card__name" data-type="message" id="cartButton">Оформить
+                    заказ</button>
             </form>
         </div>
 
@@ -130,7 +165,8 @@ function generateDeliveryTimeOptions($start = '08:00', $end = '20:00', $stepMinu
     </section>
 
     <div class="cart__header__container" style="margin-top: -20px; margin-bottom: 40px;">
-        <h1 class="cart__header" style="font-size: 36px; margin: 0px;"><a href="/catalog/packaging" style="text-decoration: underline;">Перейти в каталог упаковки</a></h1>
+        <h1 class="cart__header" style="font-size: 36px; margin: 0px;"><a href="/catalog/packaging"
+                style="text-decoration: underline;">Перейти в каталог упаковки</a></h1>
     </div>
 
     <section class="overlay hidden" id="overlay">
@@ -138,7 +174,7 @@ function generateDeliveryTimeOptions($start = '08:00', $end = '20:00', $stepMinu
         </div>
     </section>
 
-     <script>
+    <script>
         const data = {
             bouquets: <?= json_encode($bouquets['bouquets']) ?>,
             flowers: <?= json_encode($flowers) ?>,
