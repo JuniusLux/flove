@@ -25,6 +25,7 @@ class Orders
         $delivery = $_POST['delivery_method'];
         $pay = $_POST['pay'];
         $time = $_POST['time'];
+        $day = $_POST['day'];
         $comment = $_POST['comment'];
         $user_id = $_SESSION['user']['id'];
         $number = $_SESSION['user']['phone'];
@@ -32,7 +33,7 @@ class Orders
         print_r($order);
 
         $db = Connect::getConnect();
-        $db->query("INSERT INTO `orders` (`id`, `user_id`, `order`, `number`, `given`, `pay`, `status`, `time`, `comment`) VALUES (NULL, '$user_id', '$order', '$number', '$delivery', '$pay', 'Новый', '$time', '$comment');");
+        $db->query("INSERT INTO `orders` (`id`, `user_id`, `order`, `number`, `given`, `pay`, `status`, `time`, `day`, `comment`) VALUES (NULL, '$user_id', '$order', '$number', '$delivery', '$pay', 'Новый', '$time', '$day', '$comment');");
         header("Location: /cart?message=Заказ был успешно отправлен");
     }
 
@@ -46,6 +47,7 @@ class Orders
             o.order AS order_details,
             o.number AS order_number,
             o.time,
+            o.day,
             o.comment,
             o.given,
             o.pay,
@@ -79,7 +81,6 @@ class Orders
         $id = $_POST['order_id'];
         $db->query("UPDATE `orders` SET `status` = '$status' WHERE `orders`.`id` = $id;");
         header('Location: /orderPage?message=Статус изменен');
-
     }
 
 }

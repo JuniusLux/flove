@@ -46,6 +46,7 @@ $orders = Orders::getOrders();
                 <th>Номер телефона</th>
                 <th>Статус</th>
                 <th>Время</th>
+                <th>Дата</th>
                 <th>Комментарий</th>
                 <th>Способ оплаты</th>
                 <th>Доставка</th>
@@ -72,6 +73,7 @@ $orders = Orders::getOrders();
                     <td><?= $order['order_number'] ?></td>
                     <td><?= $order['order_status'] ?></td>
                     <td><?= $order['time'] ?></td>
+                    <td><?= $order['day'] ?></td>
                     <td><?= $order['comment'] ?></td>
                     <td><?= $order['pay'] == 'cash' ? 'Наличными' : 'Картой'?></td>
                     <td><?= $order['given'] == 'self' ? 'Самовывоз' : 'Доставка' ?></td>
